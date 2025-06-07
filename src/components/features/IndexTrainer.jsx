@@ -41,32 +41,36 @@ const IndexTrainer = ({ sections, onExit }) => {
                             inputClassName += isCorrect ? ' correct' : ' incorrect';
                         }
 
+                        // --- CÓDIGO CORREGIDO ---
+                        // Se añade la clase 'trainer-item' y se estructura con spans para el control por CSS Grid
                         return (
-                            <li key={section.id}>
-                                {/* El div del grupo ahora recibe el style para la sangría */}
-                                <div className="trainer-input-group full-width" style={{ marginLeft: `${level * 2}rem` }}>
+                            <li key={section.id} className="trainer-item">
+                                
+                                <div className="trainer-item-content">
+                                  <div className="trainer-input-group">
                                     <input
-                                        type="text"
-                                        className={inputClassName}
-                                        placeholder={`Escribe el título del apartado ${section.shortTitle}`}
-                                        value={answers[section.id] || ''}
-                                        onChange={(e) => handleInputChange(section.id, e.target.value)}
-                                        disabled={isVerified && isCorrect}
+                                      type="text"
+                                      className={inputClassName}
+                                      placeholder="Escribe el título aquí..."
+                                      value={answers[section.id] || ''}
+                                      onChange={(e) => handleInputChange(section.id, e.target.value)}
+                                      disabled={isVerified && isCorrect}
                                     />
                                     {!isVerified && (
-                                        <button onClick={() => checkAnswer(section.id, section.title)}>
-                                            Verificar
-                                        </button>
+                                      <button onClick={() => checkAnswer(section.id, section.title)}>
+                                        Verificar
+                                      </button>
                                     )}
-                                </div>
-                                {/* El div de la respuesta correcta también recibe la sangría */}
-                                {isVerified && !isCorrect && (
-                                    <div className="correct-answer full-width" style={{ marginLeft: `${level * 2}rem` }}>
-                                        <strong>Respuesta correcta:</strong> {section.title}
+                                  </div>
+                                  {isVerified && !isCorrect && (
+                                    <div className="correct-answer">
+                                      <strong>Respuesta correcta:</strong> {section.title}
                                     </div>
-                                )}
+                                  )}
+                                </div>
                             </li>
                         );
+                        // --- FIN DE LA CORRECCIÓN ---
                     })}
                 </ul>
             </div>

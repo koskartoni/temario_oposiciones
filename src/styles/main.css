@@ -135,19 +135,124 @@
   .equation-container .katex-display { margin: 0; }
   
   /* ==========================================================================
-     5. MODO PRÁCTICA
-     ========================================================================== */
-  .index-trainer-immersive { width: 100%; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem; box-sizing: border-box; }
-  .exit-practice-btn { align-self: flex-start; margin-bottom: 2rem; padding: 0.6rem 1.2rem; background-color: #3c3c3c; color: white; border: 1px solid #555; border-radius: 5px; cursor: pointer; font-weight: bold; }
-  .index-trainer-card { width: 100%; max-width: 900px; background-color: #2d2d30; border: 1px solid #007acc; border-radius: 8px; padding: 1.5rem; }
-  .index-trainer-header { display: flex; align-items: center; gap: 0.75rem; color: #00aaff; margin: -1.5rem -1.5rem 1rem -1.5rem; padding: 1rem 1.5rem; background-color: rgba(0, 122, 204, 0.1); border-bottom: 1px solid #007acc; }
-  .index-trainer-header h3 { margin: 0; border: none; padding: 0; }
-  .index-trainer-list { list-style: none; padding: 0; }
-  .index-trainer-list li { margin-bottom: 1rem; }
-  .trainer-input-group { display: flex; }
-  .trainer-input { flex-grow: 1; background-color: #3c3c3c; border: 1px solid #555; color: #d4d4d4; padding: 0.5rem; border-radius: 4px 0 0 4px; outline: none; }
-  .trainer-input:focus { border-color: #007acc; }
-  .trainer-input.correct { background-color: #2c5f2d; border-color: #38761d; color: white; }
-  .trainer-input.incorrect { background-color: #662222; border-color: #990000; color: white; }
-  .trainer-input-group button { padding: 0.5rem 1rem; border: 1px solid #007acc; background-color: #007acc; color: white; cursor: pointer; border-radius: 0 4px 4px 0; }
-  .correct-answer { margin-top: 0.5rem; color: #90ee90; font-size: 0.9em; }
+   /* ==========================================================================
+   5. MODO PRÁCTICA Y CARACTERÍSTICAS ESPECIALES
+   ========================================================================== */
+
+/* --- Botón de Modo Práctica --- */
+.practice-mode-btn {
+  display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem;
+  background-color: #007acc; color: white; border: none; border-radius: 5px;
+  cursor: pointer; font-weight: bold; transition: background-color 0.2s; white-space: nowrap;
+}
+.practice-mode-btn:hover { background-color: #009aeA; }
+
+/* --- Contenedor Inmersivo del Entrenador --- */
+.index-trainer-immersive {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow-y: auto; /* CORRECCIÓN: Habilita el scroll vertical */
+}
+
+/* --- Botón para Salir del Modo Práctica --- */
+.exit-practice-btn {
+  align-self: flex-start;
+  margin-bottom: 2rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #3c3c3c;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* --- Tarjeta Principal del Entrenador --- */
+.index-trainer-card {
+  width: 100%;
+  max-width: 900px;
+  background-color: #2d2d30;
+  border: 1px solid #007acc;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.index-trainer-header {
+  display: flex; align-items: center; gap: 0.75rem; color: #00aaff;
+  margin: -1.5rem -1.5rem 1rem -1.5rem; padding: 1rem 1.5rem;
+  background-color: rgba(0, 122, 204, 0.1);
+  border-bottom: 1px solid #007acc;
+}
+.index-trainer-header h3 { margin: 0; border: none; padding: 0; }
+
+.index-trainer-instructions {
+  font-style: italic;
+  color: #a0a0a0;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Lista de Items del Entrenador --- */
+.index-trainer-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* CORRECCIÓN: Usamos Grid para alinear número y campo de texto en dos columnas */
+.trainer-item {
+  display: grid;
+  grid-template-columns: 150px 1fr; /* Columna fija para el número, el resto para el contenido */
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.trainer-item-number {
+  font-weight: bold;
+  text-align: right;
+  color: #ccc;
+}
+
+.trainer-item-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Grupo de Input y Botón --- */
+.trainer-input-group {
+  display: flex;
+  width: 100%;
+}
+.trainer-input {
+  flex-grow: 1;
+  background-color: #3c3c3c;
+  border: 1px solid #555;
+  color: #d4d4d4;
+  padding: 0.5rem;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+.trainer-input:focus { border-color: #007acc; }
+.trainer-input.correct { background-color: #2c5f2d; border-color: #38761d; color: white; }
+.trainer-input.incorrect { background-color: #662222; border-color: #990000; color: white; }
+
+.trainer-input-group button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #007acc;
+  background-color: #007acc;
+  color: white;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+}
+
+/* --- Mensaje de Respuesta Correcta --- */
+.correct-answer {
+  margin-top: 0.5rem;
+  color: #90ee90;
+  font-size: 0.9em;
+  /* El grid layout ya se encarga de su posición, no necesita márgenes extra */
+}
