@@ -7,6 +7,8 @@ import { allThemesData } from './data/index.js';
 import PageLayout from './components/layout/PageLayout.jsx';
 import ContentRenderer from './components/ContentRenderer.jsx';
 import IndexTrainer from './components/features/IndexTrainer.jsx';
+import Pagination from './components/common/Pagination';
+import NextSectionButton from './components/common/NextSectionButton';
 
 function App() {
   const [currentThemeIndex, setCurrentThemeIndex] = useState(0);
@@ -23,6 +25,11 @@ function App() {
   const sectionsWithIndex = [indexSection, ...currentThemeData.sections];
   const [selectedSectionId, setSelectedSectionId] = useState(indexSection.id);
   const selectedSection = sectionsWithIndex.find(s => s.id === selectedSectionId);
+  // --- NUEVO: Lógica para paginación ---
+const currentIndex = sectionsWithIndex.findIndex(s => s.id === selectedSectionId);
+const prevSection = currentIndex > 0 ? sectionsWithIndex[currentIndex - 1] : null;
+const nextSection = currentIndex < sectionsWithIndex.length - 1 ? sectionsWithIndex[currentIndex + 1] : null;
+// --- FIN NUEVO ---
 
   // Efecto para volver al índice al cambiar de tema
   useEffect(() => {
@@ -91,6 +98,10 @@ function App() {
         contentBlocks={selectedSection?.content}
         onSectionClick={handleSectionClick}
       />
+      {/* --- NUEVO: Componentes de navegación al final de la página --- */}
+<Pagination prev={prevSection} next={nextSection} onNavigate={handleSectionClick} />
+<NextSectionButton next={nextSection} onNavigate={handleSectionClick} />
+{/* --- FIN NUEVO --- */}
     </PageLayout>
   );
 }
