@@ -11,6 +11,8 @@ import Table from './blocks/Table'; // Nuevo
 import Diagram from './blocks/Diagram'; // Nuevo
 import ResourceLink from './blocks/ResourceLink'; // Nuevo
 import Bibliography from './blocks/Bibliography'; // Nuevo
+import Equation from './blocks/Equation';
+import FlowDiagram from './blocks/FlowDiagram';
 
 // 2. Actualiza el mapa
 const componentMap = {
@@ -22,7 +24,9 @@ const componentMap = {
   table: Table,                   // Nuevo
   diagram: Diagram,               // Nuevo
   resourceLink: ResourceLink,     // Nuevo
-  bibliography: Bibliography,     // Nuevo
+  bibliography: Bibliography,
+  equation: Equation,
+  flowDiagram: FlowDiagram,    // Nuevo
 };
 
 // 3. El componente principal que recibe los bloques de contenido

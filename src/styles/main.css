@@ -153,3 +153,180 @@ th {
 .bibliography-list a {
     color: #4e9fdf;
 }
+/* ... al final de src/styles/main.css ... */
+
+/* Anulamos el width fijo de la sidebar, ahora lo controla el panel */
+.sidebar {
+  width: 100%; 
+  height: 100%;
+  box-sizing: border-box; /* Importante para que el padding no desborde */
+}
+
+/* Estilos para el tirador de redimensionamiento */
+.resize-handle {
+  width: 6px;
+  background-color: #1e1e1e;
+  cursor: col-resize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.resize-handle:hover {
+  background-color: #007acc;
+}
+
+/* Para un futuro, podríamos añadir un indicador visual en el tirador */
+.resize-handle::after {
+  content: '•••';
+  transform: rotate(90deg);
+  color: #888;
+  font-size: 10px;
+}
+
+/* ... al final de src/styles/main.css ... */
+
+/* Estilos para las tarjetas de contenido didáctico */
+.block-card {
+  background-color: #252526;
+  border: 1px solid #3c3c3c;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.block-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.block-icon {
+  padding: 1rem;
+  font-size: 1.5rem;
+  color: #007acc;
+  border-right: 1px solid #3c3c3c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 122, 204, 0.1);
+}
+
+.block-content {
+  padding: 0.5rem 1.5rem;
+  flex-grow: 1;
+}
+
+/* Ajustes finos para el contenido dentro de las tarjetas */
+.block-content p, 
+.block-content ul, 
+.block-content dl {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ... al final de src/styles/main.css ... */
+
+/* --- Estilos de Contenido Didáctico --- */
+
+/* Resaltar palabras clave (negrita) */
+.block-content strong {
+  color: #56b6c2; /* Un color cian claro, bueno para destacar */
+  font-weight: 600;
+}
+
+/* Resaltar términos técnicos, nombres de archivos o código */
+.block-content code {
+  background-color: #3a3a3a;
+  color: #ce9178; /* Un color anaranjado, típico para strings o valores */
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9em;
+}
+
+/* Mejorar el espaciado en las listas de definiciones */
+.block-content dt {
+  margin-top: 1rem;
+}
+.block-content dd {
+  margin-left: 1.5rem;
+  padding-left: 1rem;
+  border-left: 2px solid #007acc;
+  color: #b3b3b3; /* Un gris un poco más claro para la descripción */
+}
+
+.accordion-header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+.accordion-header span {
+  margin-right: 0.5rem;
+}
+.accordion-content {
+  padding: 0.5rem 1rem 1rem 2rem;
+  border-top: 1px solid #3c3c3c;
+  margin-top: 0.5rem;
+}
+
+/* ... al final de src/styles/main.css ... */
+.block-content em {
+  color: #b5cea8; /* Un color verde claro, bueno para títulos de libros */
+  font-style: italic;
+}
+/* ... al final de src/styles/main.css ... */
+.equation-container .katex-display {
+  /* Quita el margen por defecto para que nuestro BlockWrapper lo controle */
+  margin: 0; 
+}
+
+/* ... al final de src/styles/main.css ... */
+
+.flow-diagram-container {
+  padding: 1rem;
+}
+.flow-diagram-container h4 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.flow-viewport {
+  width: 100%;
+  height: 400px; /* Altura fija para el contenedor del diagrama */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* --- Estilos para personalizar React Flow --- */
+.react-flow .react-flow__node {
+  background-color: #37373d;
+  color: #222;
+  border: 1px solid #555;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 12px;
+  padding: 8px;
+  font-weight: 500; /* <-- AÑADIDO: Texto un poco más grueso */
+}
+
+.react-flow .react-flow__edge-path {
+  stroke: #007acc;
+  stroke-width: 2;
+}
+
+.react-flow .react-flow__controls button {
+  background-color: #37373d;
+  border: none;
+}
+.react-flow .react-flow__controls button:hover {
+  background-color: #444;
+}
+
+.react-flow .react-flow__minimap {
+  background-color: #252526;
+  border: 1px solid #444;
+}

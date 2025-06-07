@@ -1,19 +1,22 @@
 // En: src/components/layout/PageLayout.jsx
 import React from 'react';
+import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
-// Este componente recibe dos props: 'sidebar' y 'children'.
-// 'sidebar' será el JSX de la barra lateral.
-// 'children' será el JSX del contenido principal.
 const PageLayout = ({ sidebar, children }) => {
   return (
-    <div className="app-container">
-      <aside className="sidebar">
-        {sidebar}
-      </aside>
-      <main className="main-content">
-        {children}
-      </main>
-    </div>
+    <PanelGroup direction="horizontal" className="app-container">
+      <Panel defaultSize={20} minSize={15}>
+        <aside className="sidebar">
+          {sidebar}
+        </aside>
+      </Panel>
+      <PanelResizeHandle className="resize-handle" />
+      <Panel>
+        <main className="main-content">
+          {children}
+        </main>
+      </Panel>
+    </PanelGroup>
   );
 };
 
