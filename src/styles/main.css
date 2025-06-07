@@ -257,53 +257,6 @@
   /* El grid layout ya se encarga de su posición, no necesita márgenes extra */
 }
 
-/* ==========================================================================
-   7. PAGINACIÓN INFERIOR
-   ========================================================================== */
-   .pagination-nav {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid #3c3c3c;
-    gap: 1rem;
-  }
-  .pagination-btn {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.8rem 1.5rem;
-    background-color: #2d2d30;
-    color: #d4d4d4;
-    border: 1px solid #444;
-    border-radius: 8px;
-    cursor: pointer;
-    text-align: left;
-    transition: all 0.2s ease;
-    flex-basis: 48%; /* Ocupa casi la mitad del espacio */
-    max-width: 48%;
-  }
-  .pagination-btn:hover {
-    background-color: #007acc;
-    color: white;
-    border-color: #007acc;
-  }
-  .pagination-btn span {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .pagination-btn small {
-    font-size: 0.8em;
-    opacity: 0.7;
-    margin-bottom: 0.2rem;
-  }
-  .pagination-btn.next {
-    text-align: right;
-    justify-content: flex-end;
-  }
   
   /* ==========================================================================
      8. BOTÓN FLOTANTE DE SCROLL
@@ -334,3 +287,32 @@
   }
   .next-section-btn small { font-size: 0.7em; }
   .next-section-btn span { font-size: 1em; font-weight: bold; margin: 2px 0; }
+
+  /* ... estilos de .next-section-btn ... */
+
+.prev-section-btn {
+  position: fixed;
+  bottom: 25px;
+  left: 25px; /* A la izquierda */
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem;
+  background-color: #007acc;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  animation: fadeIn 0.5s ease;
+  transition: background-color 0.2s;
+}
+.prev-section-btn:hover {
+  background-color: #007acc;
+}
+.prev-section-btn small { font-size: 0.7em; }
+.prev-section-btn span { font-size: 1em; font-weight: bold; margin: 2px 0; }

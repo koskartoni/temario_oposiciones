@@ -1,4 +1,3 @@
-// En: src/App.jsx
 import React, { useState, useEffect } from 'react';
 import { FaBrain } from 'react-icons/fa';
 
@@ -7,49 +6,65 @@ import { allThemesData } from './data/index.js';
 import PageLayout from './components/layout/PageLayout.jsx';
 import ContentRenderer from './components/ContentRenderer.jsx';
 import IndexTrainer from './components/features/IndexTrainer.jsx';
-import Pagination from './components/common/Pagination';
-import NextSectionButton from './components/common/NextSectionButton';
+import PrevSectionButton from './components/common/PrevSectionButton.jsx';
+import NextSectionButton from './components/common/NextSectionButton.jsx';
 
 function App() {
+  // --- Estados ---
   const [currentThemeIndex, setCurrentThemeIndex] = useState(0);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isPracticeMode, setIsPracticeMode] = useState(false);
   
+  // El estado de la sección se inicializa y se actualiza en el efecto para mayor seguridad
+  const [selectedSectionId, setSelectedSectionId] = useState('');
+
+  // --- Derivación de Datos ---
   const currentThemeData = allThemesData[currentThemeIndex];
+  
   const indexSection = {
     id: `${currentThemeData.id}-index`,
     shortTitle: "0. Índice del Tema",
     title: `Índice: ${currentThemeData.title}`,
     content: [{ type: 'tableOfContents', sections: currentThemeData.sections }]
   };
+  
   const sectionsWithIndex = [indexSection, ...currentThemeData.sections];
-  const [selectedSectionId, setSelectedSectionId] = useState(indexSection.id);
-  const selectedSection = sectionsWithIndex.find(s => s.id === selectedSectionId);
-  // --- NUEVO: Lógica para paginación ---
-const currentIndex = sectionsWithIndex.findIndex(s => s.id === selectedSectionId);
-const prevSection = currentIndex > 0 ? sectionsWithIndex[currentIndex - 1] : null;
-const nextSection = currentIndex < sectionsWithIndex.length - 1 ? sectionsWithIndex[currentIndex + 1] : null;
-// --- FIN NUEVO ---
+  
+  const currentIndex = sectionsWithIndex.findIndex(s => s.id === selectedSectionId);
+  const selectedSection = sectionsWithIndex[currentIndex];
+  const prevSection = currentIndex > 0 ? sectionsWithIndex[currentIndex - 1] : null;
+  const nextSection = currentIndex < sectionsWithIndex.length - 1 ? sectionsWithIndex[currentIndex + 1] : null;
 
-  // Efecto para volver al índice al cambiar de tema
+  // --- Efectos ---
   useEffect(() => {
-    const newIndexId = `${allThemesData[currentThemeIndex].id}-index`;
-    setSelectedSectionId(newIndexId);
+    // Este efecto asegura que al cargar o cambiar de tema, siempre empecemos en la página de índice
+    setSelectedSectionId(`${allThemesData[currentThemeIndex].id}-index`);
   }, [currentThemeIndex]);
 
+
+  // --- Manejadores de Eventos ---
   const handleThemeChange = (event) => {
     setCurrentThemeIndex(parseInt(event.target.value, 10));
   };
 
   const handleSectionClick = (sectionId) => {
     setSelectedSectionId(sectionId);
-    setIsSidebarOpen(false);
+    setIsSidebarOpen(false); // Cierra el menú al hacer clic en una sección (importante para móvil)
   };
+  
+  // --- Renderizado ---
 
+  // Si estamos en modo práctica, renderizamos solo el entrenador
   if (isPracticeMode) {
     return <IndexTrainer sections={currentThemeData.sections} onExit={() => setIsPracticeMode(false)} />;
   }
 
+  // Si la sección aún no se ha cargado (en el primer renderizado), mostramos un estado de carga
+  if (!selectedSection) {
+    return <div>Cargando...</div>; 
+  }
+
+  // Renderizado principal
   return (
     <PageLayout
       sidebarContent={
@@ -85,23 +100,26 @@ const nextSection = currentIndex < sectionsWithIndex.length - 1 ? sectionsWithIn
       isSidebarOpen={isSidebarOpen}
       onCloseSidebar={() => setIsSidebarOpen(false)}
     >
+      {/* El detector del botón 'Anterior' va al principio del contenido */}
+      <PrevSectionButton prev={prevSection} onNavigate={handleSectionClick} />
+
       <div className="main-content-header">
         <button className="menu-toggle-btn" onClick={() => setIsSidebarOpen(true)}>☰</button>
-        <h1>{selectedSection?.title}</h1>
-        {selectedSection?.id.endsWith('-index') && (
+        <h1>{selectedSection.title}</h1>
+        {selectedSection.id.endsWith('-index') && (
           <button className="practice-mode-btn" onClick={() => setIsPracticeMode(true)}>
             <FaBrain /> Practicar
           </button>
         )}
       </div>
+
       <ContentRenderer
-        contentBlocks={selectedSection?.content}
+        contentBlocks={selectedSection.content}
         onSectionClick={handleSectionClick}
       />
-      {/* --- NUEVO: Componentes de navegación al final de la página --- */}
-<Pagination prev={prevSection} next={nextSection} onNavigate={handleSectionClick} />
-<NextSectionButton next={nextSection} onNavigate={handleSectionClick} />
-{/* --- FIN NUEVO --- */}
+      
+      {/* El detector del botón 'Siguiente' va al final del contenido */}
+      <NextSectionButton next={nextSection} onNavigate={handleSectionClick} />
     </PageLayout>
   );
 }
