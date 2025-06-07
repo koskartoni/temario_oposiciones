@@ -1,332 +1,153 @@
-/* En: src/styles/main.css */
-
-/* Reset básico y configuración de fuente */
-body {
+/* ==========================================================================
+   1. RESET BÁSICO Y CONFIGURACIÓN GLOBAL
+   ========================================================================== */
+   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: #1e1e1e;
     color: #d4d4d4;
+    overflow: hidden;
   }
   
-  /* Contenedor principal de la aplicación con Flexbox */
-  .app-container {
-    display: flex;
+  /* ==========================================================================
+     2. LAYOUT PRINCIPAL Y RESPONSIVE
+     ========================================================================== */
+  
+  .app-container, .main-layout-container {
     height: 100vh;
+    width: 100vw;
   }
   
-  /* Barra lateral (Sidebar) */
-  .sidebar {
-    width: 280px;
+  /* --- Layout de Escritorio (por defecto) --- */
+  .main-layout-container {
+    display: flex;
+  }
+  .sidebar-panel-desktop {
     background-color: #252526;
+    min-width: 280px;
+  }
+  .sidebar-desktop-content {
+    height: 100%;
     padding: 1rem;
+    box-sizing: border-box;
     overflow-y: auto;
-    border-right: 1px solid #3c3c3c;
   }
-  .sidebar-header {
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid #3c3c3c;
+  .resize-handle {
+    width: 6px; background-color: #2c2c2d; cursor: col-resize;
   }
-  .sidebar-header h2 {
-      margin: 0;
-      font-size: 1.2rem;
-  }
-  .sidebar-header span {
-      font-size: 0.8rem;
-      opacity: 0.7;
-  }
-  
-  /* Selector de temas */
-  .theme-selector {
-      width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      background-color: #3c3c3c;
-      color: #d4d4d4;
-      border: 1px solid #555;
-      border-radius: 4px;
-      font-size: 1rem;
-  }
-  
-  /* Lista de navegación de secciones */
-  .sidebar-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .sidebar-nav a {
-    display: block;
-    padding: 0.75rem 1rem;
-    text-decoration: none;
-    color: #cccccc;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    transition: background-color 0.2s;
-  }
-  .sidebar-nav a:hover {
-    background-color: #37373d;
-  }
-  .sidebar-nav a.active {
+  .resize-handle:hover {
     background-color: #007acc;
-    color: white;
-    font-weight: bold;
   }
-  
-  /* Área de contenido principal */
   .main-content {
-    flex-grow: 1; /* Ocupa el resto del espacio */
+    height: 100%;
     padding: 2rem;
+    box-sizing: border-box;
     overflow-y: auto;
   }
-  /* En: src/styles/main.css (añadir al final) */
-
-/* Estilos para nuevos componentes de bloque */
-h3 {
-  border-bottom: 1px solid #444;
-  padding-bottom: 0.3rem;
-  margin-top: 2rem;
-}
-
-table {
-  width: auto;
-  border-collapse: collapse;
-  margin: 1rem 0;
-  text-align: center;
-}
-th, td {
-  border: 1px solid #444;
-  padding: 0.5rem;
-}
-th {
-  background-color: #333;
-}
-
-.diagram {
-  border: 1px solid #444;
-  border-radius: 8px;
-  padding: 1rem;
-  margin: 1.5rem 0;
-  background-color: #2c2c2d;
-}
-.diagram-flow {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  align-items: center;
-  text-align: center;
-}
-.diagram-col-header {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-.diagram-item {
-  border: 1px solid #555;
-  background-color: #37373d;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-}
-.diagram-arrow {
-  font-size: 1.5rem;
-}
-
-.resource-link {
-  margin-bottom: 1rem;
-}
-.resource-link strong a {
-  color: #4e9fdf;
-  text-decoration: none;
-}
-.resource-link p {
-  margin: 0.3rem 0 0 0;
-  padding-left: 1rem;
-  border-left: 2px solid #444;
-}
-
-.bibliography-list {
-  list-style: none;
-  padding-left: 0;
-}
-.bibliography-list li {
-  margin-bottom: 0.5rem;
-}
-.bibliography-list a {
-    color: #4e9fdf;
-}
-/* ... al final de src/styles/main.css ... */
-
-/* Anulamos el width fijo de la sidebar, ahora lo controla el panel */
-.sidebar {
-  width: 100%; 
-  height: 100%;
-  box-sizing: border-box; /* Importante para que el padding no desborde */
-}
-
-/* Estilos para el tirador de redimensionamiento */
-.resize-handle {
-  width: 6px;
-  background-color: #1e1e1e;
-  cursor: col-resize;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s;
-}
-
-.resize-handle:hover {
-  background-color: #007acc;
-}
-
-/* Para un futuro, podríamos añadir un indicador visual en el tirador */
-.resize-handle::after {
-  content: '•••';
-  transform: rotate(90deg);
-  color: #888;
-  font-size: 10px;
-}
-
-/* ... al final de src/styles/main.css ... */
-
-/* Estilos para las tarjetas de contenido didáctico */
-.block-card {
-  background-color: #252526;
-  border: 1px solid #3c3c3c;
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
-  display: flex;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.block-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-
-.block-icon {
-  padding: 1rem;
-  font-size: 1.5rem;
-  color: #007acc;
-  border-right: 1px solid #3c3c3c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 122, 204, 0.1);
-}
-
-.block-content {
-  padding: 0.5rem 1.5rem;
-  flex-grow: 1;
-}
-
-/* Ajustes finos para el contenido dentro de las tarjetas */
-.block-content p, 
-.block-content ul, 
-.block-content dl {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-/* ... al final de src/styles/main.css ... */
-
-/* --- Estilos de Contenido Didáctico --- */
-
-/* Resaltar palabras clave (negrita) */
-.block-content strong {
-  color: #56b6c2; /* Un color cian claro, bueno para destacar */
-  font-weight: 600;
-}
-
-/* Resaltar términos técnicos, nombres de archivos o código */
-.block-content code {
-  background-color: #3a3a3a;
-  color: #ce9178; /* Un color anaranjado, típico para strings o valores */
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 0.9em;
-}
-
-/* Mejorar el espaciado en las listas de definiciones */
-.block-content dt {
-  margin-top: 1rem;
-}
-.block-content dd {
-  margin-left: 1.5rem;
-  padding-left: 1rem;
-  border-left: 2px solid #007acc;
-  color: #b3b3b3; /* Un gris un poco más claro para la descripción */
-}
-
-.accordion-header {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  padding: 0.5rem 0;
-}
-.accordion-header span {
-  margin-right: 0.5rem;
-}
-.accordion-content {
-  padding: 0.5rem 1rem 1rem 2rem;
-  border-top: 1px solid #3c3c3c;
-  margin-top: 0.5rem;
-}
-
-/* ... al final de src/styles/main.css ... */
-.block-content em {
-  color: #b5cea8; /* Un color verde claro, bueno para títulos de libros */
-  font-style: italic;
-}
-/* ... al final de src/styles/main.css ... */
-.equation-container .katex-display {
-  /* Quita el margen por defecto para que nuestro BlockWrapper lo controle */
-  margin: 0; 
-}
-
-/* ... al final de src/styles/main.css ... */
-
-.flow-diagram-container {
-  padding: 1rem;
-}
-.flow-diagram-container h4 {
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-.flow-viewport {
-  width: 100%;
-  height: 400px; /* Altura fija para el contenedor del diagrama */
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-/* --- Estilos para personalizar React Flow --- */
-.react-flow .react-flow__node {
-  background-color: #37373d;
-  color: #222;
-  border: 1px solid #555;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 12px;
-  padding: 8px;
-  font-weight: 500; /* <-- AÑADIDO: Texto un poco más grueso */
-}
-
-.react-flow .react-flow__edge-path {
-  stroke: #007acc;
-  stroke-width: 2;
-}
-
-.react-flow .react-flow__controls button {
-  background-color: #37373d;
-  border: none;
-}
-.react-flow .react-flow__controls button:hover {
-  background-color: #444;
-}
-
-.react-flow .react-flow__minimap {
-  background-color: #252526;
-  border: 1px solid #444;
-}
+  .sidebar-mobile, .sidebar-overlay, .menu-toggle-btn {
+    display: none;
+  }
+  
+  /* --- Media Query para Móvil (max-width: 768px) --- */
+  @media (max-width: 768px) {
+    .sidebar-panel-desktop, .resize-handle {
+      display: none; /* Ocultamos el panel de escritorio y el tirador */
+    }
+    .main-layout-container {
+      width: 100%; /* El contenedor principal ocupa todo */
+    }
+    .main-content {
+      padding: 1rem;
+    }
+    .menu-toggle-btn {
+      display: block; font-size: 1.5rem; padding: 0.2rem 0.8rem; margin-right: 1rem; background: #3c3c3c; border: 1px solid #555; color: #d4d4d4; border-radius: 5px; cursor: pointer;
+    }
+    .sidebar-mobile {
+      display: block; position: fixed; top: 0; left: -100%; width: 280px; height: 100%;
+      z-index: 1000; transition: left 0.3s ease-in-out; box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+      background-color: #252526; padding: 1rem; box-sizing: border-box; overflow-y: auto;
+    }
+    .sidebar-mobile.open {
+      left: 0;
+    }
+    .sidebar-overlay {
+      display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6); z-index: 999;
+      opacity: 0; visibility: hidden; transition: opacity 0.3s;
+    }
+    .sidebar-overlay.open {
+      opacity: 1; visibility: visible;
+    }
+  }
+  
+  /* ==========================================================================
+     3. ESTILOS DE ELEMENTOS COMUNES
+     ========================================================================== */
+  
+  /* --- Sidebar --- */
+  .sidebar-header { padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid #3c3c3c; }
+  .sidebar-header h2 { font-size: 1.1rem; margin: 0 0 0.25rem 0; }
+  .sidebar-header span { font-size: 0.8rem; opacity: 0.7; }
+  .theme-selector { width: 100%; padding: 0.5rem; margin: 1rem 0; background-color: #3c3c3c; color: #d4d4d4; border: 1px solid #555; border-radius: 4px; font-size: 0.9rem; }
+  .sidebar-nav ul { list-style: none; padding: 0; margin: 0; }
+  .sidebar-nav a { display: block; padding: 0.75rem 1rem; text-decoration: none; color: #cccccc; border-radius: 5px; margin-bottom: 5px; transition: background-color 0.2s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sidebar-nav a:hover { background-color: #37373d; }
+  .sidebar-nav a.active { background-color: #007acc; color: white; font-weight: bold; }
+  
+  /* --- Contenido Principal Header --- */
+  .main-content-header { display: flex; align-items: center; padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid #3c3c3c; }
+  .main-content-header h1 { flex-grow: 1; font-size: 1.8rem; margin: 0; }
+  .practice-mode-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; background-color: #007acc; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background-color 0.2s; white-space: nowrap; }
+  .practice-mode-btn:hover { background-color: #009aeA; }
+  @media (max-width: 768px) {
+    .main-content-header h1 { font-size: 1.3rem; }
+    .practice-mode-btn { padding: 0.5rem 0.8rem; font-size: 0.9rem; }
+  }
+  
+  /* ==========================================================================
+     4. ESTILOS DE COMPONENTES DE BLOQUE
+     ========================================================================== */
+  
+  /* --- Tarjeta Contenedora --- */
+  .block-card { background-color: #252526; border: 1px solid #3c3c3c; border-radius: 8px; margin-bottom: 1.5rem; display: flex; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+  .block-icon { padding: 1rem; font-size: 1.5rem; color: #007acc; border-right: 1px solid #3c3c3c; display: flex; align-items: center; justify-content: center; background-color: rgba(0, 122, 204, 0.1); }
+  .block-content { padding: 0.5rem 1.5rem; flex-grow: 1; }
+  .block-content > *:first-child { margin-top: 0.5rem; }
+  .block-content > *:last-child { margin-bottom: 0.5rem; }
+  @media (max-width: 768px) { .block-card { flex-direction: column; } .block-icon { border-right: none; border-bottom: 1px solid #3c3c3c; } }
+  
+  /* --- Texto y Formato --- */
+  .block-content strong { color: #56b6c2; }
+  .block-content code { background-color: #3a3a3a; color: #ce9178; padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', monospace; }
+  .block-content em { color: #b5cea8; font-style: italic; }
+  .block-content h3 { border-bottom: 1px solid #444; padding-bottom: 0.3rem; margin-top: 2rem; }
+  .block-content dl dt { margin-top: 1rem; }
+  .block-content dl dd { margin-left: 1.5rem; padding-left: 1rem; border-left: 2px solid #007acc; color: #b3b3b3; }
+  
+  /* --- Tabla de Contenidos --- */
+  .toc-nav ul { list-style: none; padding: 0; }
+  .toc-nav li a { display: block; padding: 0.8rem 1rem; border-radius: 5px; text-decoration: none; color: #d4d4d4; transition: background-color 0.2s; }
+  .toc-nav li a:hover { background-color: #37373d; }
+  
+  /* --- Diagramas y Ecuaciones --- */
+  .flow-viewport { width: 100%; height: 400px; border-radius: 8px; overflow: hidden; }
+  .react-flow .react-flow__node { background-color: #37373d; color: #222; border: 1px solid #555; border-radius: 5px; text-align: center; font-size: 12px; padding: 8px; font-weight: 500; }
+  .equation-container .katex-display { margin: 0; }
+  
+  /* ==========================================================================
+     5. MODO PRÁCTICA
+     ========================================================================== */
+  .index-trainer-immersive { width: 100%; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem; box-sizing: border-box; }
+  .exit-practice-btn { align-self: flex-start; margin-bottom: 2rem; padding: 0.6rem 1.2rem; background-color: #3c3c3c; color: white; border: 1px solid #555; border-radius: 5px; cursor: pointer; font-weight: bold; }
+  .index-trainer-card { width: 100%; max-width: 900px; background-color: #2d2d30; border: 1px solid #007acc; border-radius: 8px; padding: 1.5rem; }
+  .index-trainer-header { display: flex; align-items: center; gap: 0.75rem; color: #00aaff; margin: -1.5rem -1.5rem 1rem -1.5rem; padding: 1rem 1.5rem; background-color: rgba(0, 122, 204, 0.1); border-bottom: 1px solid #007acc; }
+  .index-trainer-header h3 { margin: 0; border: none; padding: 0; }
+  .index-trainer-list { list-style: none; padding: 0; }
+  .index-trainer-list li { margin-bottom: 1rem; }
+  .trainer-input-group { display: flex; }
+  .trainer-input { flex-grow: 1; background-color: #3c3c3c; border: 1px solid #555; color: #d4d4d4; padding: 0.5rem; border-radius: 4px 0 0 4px; outline: none; }
+  .trainer-input:focus { border-color: #007acc; }
+  .trainer-input.correct { background-color: #2c5f2d; border-color: #38761d; color: white; }
+  .trainer-input.incorrect { background-color: #662222; border-color: #990000; color: white; }
+  .trainer-input-group button { padding: 0.5rem 1rem; border: 1px solid #007acc; background-color: #007acc; color: white; cursor: pointer; border-radius: 0 4px 4px 0; }
+  .correct-answer { margin-top: 0.5rem; color: #90ee90; font-size: 0.9em; }
