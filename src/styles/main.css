@@ -78,3 +78,78 @@ body {
     padding: 2rem;
     overflow-y: auto;
   }
+  /* En: src/styles/main.css (añadir al final) */
+
+/* Estilos para nuevos componentes de bloque */
+h3 {
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.3rem;
+  margin-top: 2rem;
+}
+
+table {
+  width: auto;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  text-align: center;
+}
+th, td {
+  border: 1px solid #444;
+  padding: 0.5rem;
+}
+th {
+  background-color: #333;
+}
+
+.diagram {
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  background-color: #2c2c2d;
+}
+.diagram-flow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+}
+.diagram-col-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.diagram-item {
+  border: 1px solid #555;
+  background-color: #37373d;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+.diagram-arrow {
+  font-size: 1.5rem;
+}
+
+.resource-link {
+  margin-bottom: 1rem;
+}
+.resource-link strong a {
+  color: #4e9fdf;
+  text-decoration: none;
+}
+.resource-link p {
+  margin: 0.3rem 0 0 0;
+  padding-left: 1rem;
+  border-left: 2px solid #444;
+}
+
+.bibliography-list {
+  list-style: none;
+  padding-left: 0;
+}
+.bibliography-list li {
+  margin-bottom: 0.5rem;
+}
+.bibliography-list a {
+    color: #4e9fdf;
+}

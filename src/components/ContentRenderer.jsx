@@ -1,19 +1,28 @@
 // En: src/components/ContentRenderer.jsx
 import React from 'react';
 
-// 1. Importa todos los componentes de bloque que has creado
+// 1. Importa todos los componentes de bloque
 import Paragraph from './blocks/Paragraph';
 import NestedList from './blocks/NestedList';
 import DefinitionList from './blocks/DefinitionList';
 import SimpleList from './blocks/SimpleList';
+import Subheading from './blocks/Subheading'; // Nuevo
+import Table from './blocks/Table'; // Nuevo
+import Diagram from './blocks/Diagram'; // Nuevo
+import ResourceLink from './blocks/ResourceLink'; // Nuevo
+import Bibliography from './blocks/Bibliography'; // Nuevo
 
-// 2. Crea un mapa que asocia el 'type' de tus datos con el componente correspondiente
+// 2. Actualiza el mapa
 const componentMap = {
   paragraph: Paragraph,
   nestedList: NestedList,
   definitionList: DefinitionList,
   list: SimpleList,
-  // Aquí añadiremos más componentes a medida que los necesitemos
+  subheading: Subheading,         // Nuevo
+  table: Table,                   // Nuevo
+  diagram: Diagram,               // Nuevo
+  resourceLink: ResourceLink,     // Nuevo
+  bibliography: Bibliography,     // Nuevo
 };
 
 // 3. El componente principal que recibe los bloques de contenido
