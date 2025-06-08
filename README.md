@@ -1,6 +1,6 @@
 # Herramienta de Estudio para Oposiciones de Informática
 
-Una aplicación web interactiva y moderna desarrollada en React para estudiar el temario de las oposiciones de Informática / S.A.I. El objetivo de este proyecto es transformar el material de estudio estático en una experiencia de aprendizaje dinámica, visual y efectiva.
+Una aplicación web interactiva y moderna desarrollada en React para estudiar el temario completo de las oposiciones de Informática / S.A.I. El objetivo de este proyecto es transformar el material de estudio estático en una experiencia de aprendizaje dinámica, visual y efectiva.
 
 ![Captura de la aplicación](https://i.ibb.co/L5QyL3s/screenshot-temario-app.png)
 
@@ -18,9 +18,41 @@ Una aplicación web interactiva y moderna desarrollada en React para estudiar el
 *   **Arquitectura Escalable:** Construido con una arquitectura de componentes (`Vite` + `React`) que permite añadir nuevos temas y tipos de contenido de forma sencilla y mantenible.
 *   **Despliegue Continuo:** Alojado en **Google Cloud (Project IDX / Firebase App Hosting)** con un flujo de trabajo automatizado que despliega la última versión directamente desde el repositorio de GitHub.
 
-## Estado del Proyecto
+## Temas Implementados
 
-Actualmente en desarrollo. Se están procesando y añadiendo los temas de forma progresiva.
+Actualmente, los siguientes temas han sido completamente procesados e integrados en la aplicación:
+
+- Tema 1: Representación y Comunicación de la Información
+- Tema 2: Elementos Funcionales de un Ordenador Digital
+- Tema 3: Componentes, Estructura y Funcionamiento de la CPU
+- Tema 4: Memoria Interna
+- Tema 5: Microprocesadores
+- Tema 6: Almacenamiento Externo
+- Tema 7: Periféricos de Entrada/Salida
+- Tema 8: Hardware Comercial y Placa Base
+- Tema 9: Lógica de Circuitos
+- Tema 10: Representación Interna de los Datos
+- Tema 13: Ficheros. Tipos, Características y Organizaciones
+- Tema 15: Sistemas Operativos. Componentes y Estructura
+- Tema 16: Sistemas Operativos: Gestión de Procesos
+- Tema 17: Sistemas Operativos: Gestión de Memoria
+- Tema 19: Sistemas Operativos: Gestión de Archivos y Dispositivos
+- Tema 20: Explotación y Administración de SO Monousuario y Multiusuario
+- Tema 21/22: Sistemas Informáticos. Estructura Física y Funcional
+- Tema 25/27: Programación Estructurada
+- Tema 29/31: Utilidades para el Desarrollo de Programas
+- Tema 36: Manipulación de Datos. Operaciones y Lenguajes
+- Tema 39/38: Lenguajes para Definición y Manipulación de Datos (SQL)
+- Tema 46/41: Aplicaciones Informáticas
+- Tema 61: Redes y Servicios de Comunicaciones
+- Tema 62: Arquitecturas de Sistemas de Comunicaciones
+- Tema 63: Nivel Físico. Medios de Transmisión
+- Tema 64: Explotación y Administración de Sistemas en Red
+- Tema 67: Redes de Área Local
+- Tema 68/56: Software de Sistemas en Red
+- Tema 69/61: Integración de Sistemas
+- Tema 71: Explotación y Administración de Sistemas en Red Local
+- Tema 74/49: Sistemas Multimedia
 
 ## Cómo Ejecutar el Proyecto
 
