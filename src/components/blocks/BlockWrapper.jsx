@@ -1,12 +1,13 @@
 // En: src/components/blocks/BlockWrapper.jsx
 import React from 'react';
 // Importamos algunos iconos que usaremos
-import { FaParagraph, FaListUl, FaInfoCircle, FaTable, FaProjectDiagram, FaLink, FaBook } from 'react-icons/fa';
-import { FaCalculator, FaSitemap } from 'react-icons/fa';
-import { FaCode } from 'react-icons/fa';
+import {
+  FaParagraph, FaListUl, FaInfoCircle, FaTable, FaProjectDiagram,
+  FaLink, FaBook, FaCalculator, FaSitemap, FaCode, FaQuestionCircle,
+  FaLightbulb, FaPlug, FaCogs
+} from 'react-icons/fa';
 
 // Mapa que asocia el tipo de bloque con un icono
-
 const iconMap = {
   paragraph: <FaParagraph />,
   list: <FaListUl />,
@@ -21,9 +22,17 @@ const iconMap = {
   flowDiagram: <FaSitemap />,
   code: <FaCode />,
   codeExample: <FaCode />,
+  // --- NUEVOS ICONOS AÑADIDOS ---
+  keyConcept: <FaLightbulb />,
+  practicalExample: <FaPlug />,
+  quiz: <FaQuestionCircle />,
+  interactiveElement: <FaCogs />,
+  interactiveDiagram: <FaSitemap />
 };
 
 const BlockWrapper = ({ type, children }) => {
+  // Ahora, KeyConcept, PracticalExample y otros no usarán este wrapper,
+  // pero lo mantenemos por si se decide en un futuro y para los bloques existentes.
   const icon = iconMap[type];
 
   // Si no hay icono (como en un subheading), no aplicamos el estilo de tarjeta.

@@ -290,6 +290,240 @@
   /* El grid layout ya se encarga de su posición, no necesita márgenes extra */
 }
 
+/* ==========================================================================
+   6. ESTILOS DE COMPONENTES DIDÁCTICOS (NUEVOS)
+   ========================================================================== */
+
+/* --- Tarjeta de Concepto Clave (KeyConcept) --- */
+.key-concept-card {
+  background-color: rgba(86, 182, 194, 0.1); /* Tono cian, muy suave */
+  border: 1px solid #56b6c2;
+  border-left: 5px solid #56b6c2; /* Borde izquierdo más grueso para destacar */
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.5rem;
+}
+.key-concept-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: #56b6c2; /* Color del icono y título a juego con el borde */
+}
+.key-concept-header h4 {
+  margin: 0;
+  font-size: 1.1em;
+}
+.key-concept-content ul {
+  padding-left: 20px;
+  margin-top: 0.5rem;
+}
+.key-concept-content p, .key-concept-content li {
+  color: #c8d2d4; /* Un poco más claro para mejor lectura */
+}
+
+/* --- Tarjeta de Ejemplo Práctico (PracticalExample) --- */
+.practical-example-card {
+  background-color: rgba(181, 206, 168, 0.1); /* Tono verde, muy suave */
+  border: 1px dashed #b5cea8; /* Borde discontinuo para diferenciar */
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+}
+.practical-example-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #b5cea8;
+}
+.practical-example-header h5 {
+  margin: 0;
+  font-size: 1em;
+  font-style: italic;
+}
+.practical-example-content p {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.95em;
+  color: #c8d2d4;
+}
+
+/* --- Tarjeta de Autoevaluación (Quiz) --- */
+.quiz-card {
+  background-color: #2d2d30;
+  border: 1px solid #555;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+.quiz-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background-color: #3c3c3c;
+  border-bottom: 1px solid #555;
+  border-radius: 8px 8px 0 0;
+  color: #00aaff;
+}
+.quiz-header h4 {
+  margin: 0;
+}
+.quiz-content {
+  padding: 1.5rem;
+}
+.quiz-question-block {
+  margin-bottom: 1.5rem;
+}
+.quiz-question-text {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.quiz-options .quiz-option {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
+  margin-bottom: 0.5rem;
+  background-color: #3c3c3c;
+  border: 1px solid #555;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.quiz-options .quiz-option:hover {
+  background-color: #4a4a4a;
+  border-color: #007acc;
+}
+.quiz-option-letter {
+  font-weight: bold;
+  margin-right: 0.75rem;
+  color: #007acc;
+}
+.feedback-icon {
+  margin-left: auto;
+  font-size: 1.2rem;
+}
+.feedback-icon.correct { color: #28a745; }
+.feedback-icon.incorrect { color: #dc3545; }
+
+.quiz-option.correct {
+  background-color: rgba(40, 167, 69, 0.2);
+  border-color: #28a745;
+}
+.quiz-option.incorrect {
+  background-color: rgba(220, 53, 69, 0.2);
+  border-color: #dc3545;
+}
+
+.quiz-submit-btn {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.quiz-submit-btn:hover {
+  background-color: #009aeA;
+}
+
+/* --- Placeholder de Elemento Interactivo --- */
+.interactive-element-placeholder {
+  border: 2px dashed #444;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  margin: 2rem 0;
+  background-color: #2a2a2a;
+}
+.interactive-element-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #888;
+}
+.interactive-element-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+.interactive-element-notice {
+  margin-top: 1rem;
+  font-family: 'Courier New', monospace;
+  color: #666;
+}
+
+/* --- Diagrama Interactivo por Pasos --- */
+.interactive-diagram-card {
+  background-color: #2d2d30;
+  border: 1px solid #555;
+  border-radius: 8px;
+  margin: 2rem 0;
+  overflow: hidden; /* Para que los bordes redondeados se apliquen bien */
+}
+.interactive-diagram-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background-color: #3c3c3c;
+  color: #00aaff;
+}
+.interactive-diagram-header h4 {
+  margin: 0;
+}
+.interactive-diagram-content {
+  padding: 1.5rem;
+}
+.step-indicator {
+  text-align: center;
+  font-size: 0.9em;
+  color: #888;
+  margin-bottom: 1rem;
+}
+.step-content {
+  text-align: center;
+  min-height: 80px; /* Para evitar saltos de altura al cambiar de paso */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.step-title {
+  font-size: 1.2em;
+  margin: 0 0 0.5rem 0;
+  color: #56b6c2;
+}
+.step-description {
+  margin: 0;
+  max-width: 80%;
+}
+.step-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #444;
+}
+.step-controls button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #007acc;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.step-controls button:disabled {
+  background-color: #3c3c3c;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
   
   /* ==========================================================================
      8. BOTÓN FLOTANTE DE SCROLL
