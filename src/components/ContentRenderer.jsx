@@ -13,6 +13,8 @@ import Bibliography from './blocks/Bibliography';
 import Equation from './blocks/Equation';
 import FlowDiagram from './blocks/FlowDiagram';
 import TableOfContents from './blocks/TableOfContents';
+import CodeBlock from './blocks/CodeBlock';
+import CodeExample from './blocks/CodeExample';
 
 // 2. Mapa que asocia el 'type' de los datos con su componente React
 const componentMap = {
@@ -28,6 +30,8 @@ const componentMap = {
   equation: Equation,
   flowDiagram: FlowDiagram,
   tableOfContents: TableOfContents,
+  code: CodeBlock,
+  codeExample: CodeExample,
 };
 
 // 3. El componente principal que recibe los bloques de contenido y la función de navegación

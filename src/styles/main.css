@@ -133,7 +133,40 @@
   .flow-viewport { width: 100%; height: 400px; border-radius: 8px; overflow: hidden; }
   .react-flow .react-flow__node { background-color: #37373d; color: #222; border: 1px solid #555; border-radius: 5px; text-align: center; font-size: 12px; padding: 8px; font-weight: 500; }
   .equation-container .katex-display { margin: 0; }
+
+  /* --- Bloque de Código --- */
+.code-block {
+  background-color: #282c34; /* Un fondo oscuro típico para código */
+  color: #abb2bf;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto; /* Permite scroll horizontal si el código es largo */
+  white-space: pre; /* Mantiene los espacios y saltos de línea */
+}
   
+/* ... en la sección 4 de main.css ... */
+
+/* --- Bloque de Ejemplo de Código --- */
+.code-example {
+  width: 100%;
+}
+.code-example-title {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-style: italic;
+  color: #ccc;
+}
+.code-block {
+  background-color: #282c34;
+  color: #abb2bf;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0;
+}
+
   /* ==========================================================================
    /* ==========================================================================
    5. MODO PRÁCTICA Y CARACTERÍSTICAS ESPECIALES

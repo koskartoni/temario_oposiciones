@@ -3,6 +3,7 @@ import React from 'react';
 // Importamos algunos iconos que usaremos
 import { FaParagraph, FaListUl, FaInfoCircle, FaTable, FaProjectDiagram, FaLink, FaBook } from 'react-icons/fa';
 import { FaCalculator, FaSitemap } from 'react-icons/fa';
+import { FaCode } from 'react-icons/fa';
 
 // Mapa que asocia el tipo de bloque con un icono
 
@@ -18,6 +19,8 @@ const iconMap = {
   subheading: null, // Los subtítulos no llevarán tarjeta
   equation: <FaCalculator />,
   flowDiagram: <FaSitemap />,
+  code: <FaCode />,
+  codeExample: <FaCode />,
 };
 
 const BlockWrapper = ({ type, children }) => {
