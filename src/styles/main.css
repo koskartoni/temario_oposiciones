@@ -524,6 +524,68 @@
   cursor: not-allowed;
   opacity: 0.5;
 }
+
+/* ==========================================================================
+   7. ESTILOS DE DIAGRAMAS (React Flow)
+   ========================================================================== */
+
+   .flow-diagram-container {
+    width: 100%;
+    height: 450px; /* Un poco más de altura para diagramas complejos */
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #2d2d30; /* Fondo para el viewport del diagrama */
+    border: 1px solid #444;
+  }
+  
+  .flow-diagram-container h4 {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .react-flow .react-flow__node {
+    /* Estilo base para todos los nodos */
+    background-color: #3c3c3c;
+    color: #d4d4d4; /* Color de texto legible en fondo oscuro */
+    border: 1px solid #555;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 12px;
+    padding: 10px 15px;
+    font-weight: 500;
+  }
+  
+  .react-flow .react-flow__node.react-flow__node-group {
+    /* Estilo para los nodos de tipo 'group' */
+    background-color: rgba(0, 122, 204, 0.1);
+    border-style: dashed;
+    border-color: #007acc;
+  }
+  
+  /* Clases específicas para nodos coloreados (buses) */
+  .react-flow .react-flow__node.node-bus-control {
+    background-color: #2e7d32; /* Verde oscuro */
+    color: white;
+  }
+  .react-flow .react-flow__node.node-bus-address {
+    background-color: #1565c0; /* Azul oscuro */
+    color: white;
+  }
+  .react-flow .react-flow__node.node-bus-data {
+    background-color: #c62828; /* Rojo oscuro */
+    color: white;
+  }
+  
+  /* Estilo para las aristas/conexiones */
+  .react-flow .react-flow__edge-path {
+    stroke: #a0a0a0;
+    stroke-width: 2;
+  }
+  
+  .react-flow .react-flow__attribution {
+    display: none; /* Oculta la atribución de React Flow */
+  }
   
   /* ==========================================================================
      8. BOTÓN FLOTANTE DE SCROLL
