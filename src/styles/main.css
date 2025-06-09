@@ -587,6 +587,19 @@
     display: none; /* Oculta la atribución de React Flow */
   }
   
+/* --- Estilos para mini-diagramas en tablas --- */
+.diagram-inline {
+  font-family: 'Courier New', monospace;
+  background-color: #2d2d30;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #444;
+  display: inline-block;
+}
+.diagram-inline strong {
+  color: #c586c0; /* Un color distinto para resaltar la parte clave */
+}
+
   /* ==========================================================================
      8. BOTÓN FLOTANTE DE SCROLL
      ========================================================================== */
