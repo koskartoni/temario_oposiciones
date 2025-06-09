@@ -524,6 +524,17 @@
   cursor: not-allowed;
   opacity: 0.5;
 }
+/* --- Estilos para ImageBlock --- */
+.image-block-container {
+  margin: 2rem auto;
+  text-align: center;
+}
+.image-caption {
+  margin-top: 0.5rem;
+  font-size: 0.9em;
+  font-style: italic;
+  color: #a0a0a0;
+}
 
 /* ==========================================================================
    7. ESTILOS DE DIAGRAMAS (React Flow)

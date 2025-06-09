@@ -1,121 +1,101 @@
+// CÓDIGO FUSIONADO Y MEJORADO PARA EL TEMA 71
+// Reemplaza todo el contenido de tu archivo actual con este.
+
 export const theme71Data = {
-    id: "theme71",
-    name: "TEMA 71: Explotación y Admin. de Sistemas en Red",
-    title: "TEMA 71. INFORMÁTICA - EXPLOTACIÓN Y ADMINISTRACIÓN DE SISTEMAS EN RED LOCAL. FACILIDADES DE GESTIÓN.",
-    version: "Versión: Enero 2025 (Actualizado)",
-    sections: [
-      {
-        id: "t71_s1",
-        shortTitle: "1. Introducción",
-        title: "1. INTRODUCCIÓN",
+  id: "theme71",
+  name: "TEMA 71: Explotación y Admin. de Sistemas en Red Local",
+  title: "TEMA 71: EXPLOTACIÓN Y ADMINISTRACIÓN DE SISTEMAS EN RED LOCAL. FACILIDADES DE GESTIÓN.",
+  version: "Enero 2025",
+  sections: [
+    {
+      id: "t71_s1",
+      shortTitle: "1. Introducción",
+      title: "1. INTRODUCCIÓN",
+      icon: "introduction",
+      content: [
+        { type: 'paragraph', text: 'Este tema del bloque de "Sistemas en Red" se centra en la <strong>explotación y administración</strong> de sistemas en red local. Detallaremos las tareas y responsabilidades necesarias para mantener una red funcional, segura y eficiente.' },
+        { type: 'paragraph', text: 'El estudio de la explotación y administración de sistemas en red está presente en el currículo de la familia profesional de Informática y Comunicaciones. Concretamente, se puede ubicar dentro de los siguientes ciclos formativos:'},
+        { type: 'nestedList', items: [
+          { text: 'CFGM de <strong>Sistemas Microinformáticos y Redes</strong> – Módulo: <code>Sistemas operativos en red</code>.' },
+          { text: 'CFGS de <strong>Administración de Sistemas Informáticos en Red</strong> – Módulo: <code>Administración de sistemas operativos</code>.' }
+        ]}
+      ]
+    },
+    {
+      id: "t71_s2",
+      shortTitle: "2. Sistemas en Red",
+      title: "2. SISTEMAS EN RED",
+      icon: "network",
+      content: [
+        { type: 'paragraph', text: 'Son conjuntos de dispositivos interconectados. Sus beneficios son: <strong>compartir información y recursos, mayor flexibilidad y reducción de costes</strong>.' }
+      ]
+    },
+    {
+      id: "t71_s3",
+      shortTitle: "3. Explotación",
+      title: "3. EXPLOTACIÓN DE SISTEMAS EN RED LOCAL",
+      icon: "usage",
+      content: [
+        { type: 'paragraph', text: 'La <strong>explotación</strong> es la utilización que un usuario hace de los servicios de la red (navegadores, ofimática, etc.).' }
+      ]
+    },
+    {
+      id: "t71_s4",
+      shortTitle: "4. Administración",
+      title: "4. ADMINISTRACIÓN DE SISTEMAS EN RED LOCAL",
+      icon: "admin",
+      content: [
+        { type: 'keyConcept', title: 'Rol del Administrador de Red', text: 'Es la persona encargada de la gestión y seguridad de todos los componentes de la red. Su objetivo es asegurar que el sistema se mantenga <strong>efectivo, fiable y eficiente</strong>.'}
+      ]
+    },
+    {
+        id: "t71_s4_1_to_4_8",
+        shortTitle: "4.1-4.8. Tareas de Administración",
+        title: "4.1 a 4.8. TAREAS DE ADMINISTRACIÓN",
         content: [
-          { type: 'paragraph', text: 'Este tema del bloque de "Sistemas en Red" se centra en la <strong>explotación y administración</strong> de los sistemas en red, detallando los componentes, funciones y estructura del software que lo hace posible.' },
-          { type: 'paragraph', text: 'Los sistemas en red, mediante cableado y equipos de interconexión, constituyen el esqueleto de cualquier organización. Por este motivo, requieren una adecuada sistematización basada en la planificación y un profundo conocimiento de las TIC para gestionar la creciente demanda de nuevos servicios. Nos centraremos en detallar la explotación y administración de estos sistemas.' }
+            { type: 'definitionList', items: [
+                { term: '4.1. Instalación y Configuración:', definition: 'Implantación de hardware y software y puesta en marcha de servicios.'},
+                { term: '4.2. Gestión del Almacenamiento:', definition: 'Administración de tecnologías como <strong>DAS, NAS y SAN</strong>.'},
+                { term: '4.3. Gestión de Impresión:', definition: 'Configurar y gestionar el acceso a impresoras compartidas en red.'},
+                { term: '4.4. Gestión del Servicio de Directorio:', definition: 'Gestión centralizada de usuarios y recursos mediante <strong>Active Directory</strong> (Windows) o <strong>LDAP</strong> (Linux).'},
+                { term: '4.5. Acceso Remoto:', definition: 'Configuración de acceso por terminal (<strong>SSH</strong>) o escritorio remoto (<strong>RDP, VNC</strong>).'},
+                { term: '4.6. Gestión de Archivos en Red:', definition: 'Compartir recursos mediante <strong>NFS</strong> (Linux) o <strong>SMB/Samba</strong> (Windows/Linux).'},
+                { term: '4.7. Correo Electrónico:', definition: 'Gestión de servidores de correo y cuentas de usuario.'},
+                { term: '4.8. Otras Gestiones:', definition: 'Incluye la gestión de la seguridad (firewalls), monitorización de procesos y planificación de copias de seguridad.'}
+            ]}
         ]
-      },
-      {
-        id: "t71_s2",
-        shortTitle: "2. Sistemas en Red",
-        title: "2. SISTEMAS EN RED",
-        content: [
-          { type: 'paragraph', text: 'Los sistemas en red son conjuntos de dispositivos de computación interconectados y autónomos capaces de intercambiar información. Sus beneficios principales son: <strong>compartir información y recursos, mayor flexibilidad y reducción de costes</strong>.' }
-        ]
-      },
-      {
-        id: "t71_s3",
-        shortTitle: "3. Explotación",
-        title: "3. EXPLOTACIÓN DE SISTEMAS EN RED LOCAL",
-        content: [
-          { type: 'paragraph', text: 'La <strong>explotación</strong> es la utilización que un usuario hace de los servicios que la red pone a su disposición. El perfil del usuario varía desde usuarios finales que usan aplicaciones (navegadores, ofimática) hasta programadores que desarrollan sobre la red.' }
-        ]
-      },
-      {
-        id: "t71_s4",
-        shortTitle: "4. Administración",
-        title: "4. ADMINISTRACIÓN DE SISTEMAS EN RED LOCAL",
-        content: [
-          { type: 'paragraph', text: 'La <strong>administración de red</strong> abarca las tareas de gestión y seguridad de todos los componentes de la red. El objetivo es asegurar que el sistema se mantenga <strong>efectivo, fiable y eficiente</strong>. Las tareas más importantes se pueden clasificar en:' },
-          { type: 'list', items: ['Instalación y configuración', 'Gestión del almacenamiento', 'Gestión de impresión', 'Gestión del servicio de directorio', 'Servicios de acceso y administración remota', 'Gestión de archivos en red', 'Correo electrónico', 'Otras gestiones (seguridad, procesos, etc.).']}
-        ]
-      },
-      {
-          id: "t71_s4_1_to_4_3",
-          shortTitle: "4.1-4.3. Tareas de Admin.",
-          title: "4.1 A 4.3. INSTALACIÓN, ALMACENAMIENTO E IMPRESIÓN",
-          content: [
-              { type: 'definitionList', items: [
-                  { term: '4.1. Instalación y Configuración:', definition: 'Consiste en la implantación de todos los elementos de la red (hardware y software) y la puesta en funcionamiento de los servicios.'},
-                  { term: '4.2. Gestión del Almacenamiento:', definition: 'Gestión de tecnologías como <strong>DAS (Direct Attached Storage)</strong>, <strong>NAS (Network Attached Storage)</strong> y <strong>SAN (Storage Area Network)</strong> para dar respuesta a las necesidades de almacenamiento de la red.'},
-                  { term: '4.3. Gestión de Impresión:', definition: 'Configurar y gestionar el acceso a impresoras compartidas en la red, a menudo centralizado en <strong>servidores de impresión</strong>.'}
-              ]}
-          ]
-      },
-      {
-          id: "t71_s4_4", shortTitle: "4.4. Directorio", title: "4.4. GESTIÓN DEL SERVICIO DE DIRECTORIO",
-          content: [
-              { type: 'paragraph', text: 'El <strong>servicio de directorio</strong> almacena y organiza la información sobre usuarios y recursos, permitiendo una gestión centralizada. Actúa como autoridad central para la autenticación, usando protocolos como <code>LDAP</code> o <code>Kerberos</code>.'},
-              { type: 'paragraph', text: 'Implementaciones comunes son <strong>Active Directory</strong> en Windows Server y <strong>OpenLDAP</strong> en Linux. Sus funciones principales son la gestión de usuarios, grupos, recursos y permisos.'},
-              { type: 'list', title: 'Herramientas de Administración:', items: [
-                  '<strong>Windows Server:</strong> Consolas como "Usuarios y equipos de Active Directory" y el "Centro de administración de Active Directory (ADAC)".',
-                  '<strong>GNU/Linux:</strong> Herramientas web como <code>phpLDAPadmin</code> o aplicaciones de escritorio como <code>JXplorer</code>.'
-              ]}
-          ]
-      },
-      {
-          id: "t71_s4_5_to_4_8", shortTitle: "4.5-4.8. Servicios y Otras Gestiones", title: "4.5 A 4.8. OTROS SERVICIOS Y GESTIONES",
-          content: [
-              { type: 'definitionList', items: [
-                  {term: '4.5. Acceso Remoto:', definition: 'Administración de sistemas desde ubicaciones distintas, ya sea por terminal de texto (<strong>SSH</strong>) o por escritorio remoto (<strong>RDP</strong>, <strong>VNC</strong>).'},
-                  {term: '4.6. Gestión de Archivos en Red:', definition: 'Compartir recursos mediante protocolos como <strong>NFS</strong> (Linux/Unix) o <strong>SMB/CIFS</strong> (Windows, con <strong>Samba</strong> para interoperabilidad).'},
-                  {term: '4.7. Correo Electrónico:', definition: 'Gestión de servidores de correo, cuentas y buzones para la comunicación corporativa.'},
-                  {term: '4.8. Otras Gestiones:', definition: 'Incluye la gestión de la seguridad, la monitorización de procesos y la planificación de copias de seguridad (backups).'}
-              ]}
-          ]
-      },
-      {
-        id: "t71_s5",
-        shortTitle: "5. Facilidades de Gestión",
-        title: "5. FACILIDADES DE GESTIÓN",
-        content: [
-          { type: 'paragraph', text: 'El uso de herramientas de gestión es una necesidad para garantizar la funcionalidad y seguridad de las redes. Un protocolo estándar para ello es <strong>SNMP (Simple Network Management Protocol)</strong>, que permite a los administradores monitorizar dispositivos de red (hosts, routers, switches).'},
-          { type: 'paragraph', text: 'La ISO desarrolló el modelo <strong>FCAPS</strong> para definir las 5 áreas funcionales de la gestión de redes:'},
-          { type: 'flowDiagram', title: 'Modelo de Gestión de Red FCAPS',
-              initialNodes: [
-                  {id: 'f', position:{x:0, y:0}, data:{label:'Fault Management\n(Gestión de Errores)'}},
-                  {id: 'c', position:{x:250, y:0}, data:{label:'Configuration Management\n(Gestión de Configuración)'}},
-                  {id: 'a', position:{x:500, y:0}, data:{label:'Accounting Management\n(Gestión de Contabilidad)'}},
-                  {id: 'p', position:{x:125, y:150}, data:{label:'Performance Management\n(Gestión de Rendimiento)'}},
-                  {id: 's', position:{x:375, y:150}, data:{label:'Security Management\n(Gestión de Seguridad)'}}
-              ],
-              initialEdges: []
-          },
-          { type: 'paragraph', text: 'Para ayudar en estas tareas se utilizan plataformas de gestión de red como <code>PRTG Network Monitor</code>, <code>Zabbix</code>, <code>Nagios</code> o <code>Spiceworks</code>.'}
-        ]
-      },
-      {
-        id: "t71_s6", shortTitle: "6. Aplicación", title: "6. APLICACIÓN DE LOS CONTENIDOS AL CONTEXTO ESCOLAR Y LABORAL",
-        content: [
-            { type: 'paragraph', text: 'El conocimiento sobre la explotación y administración de sistemas en red local es fundamental en la formación de futuros profesionales de la informática. En el contexto escolar, los estudiantes desarrollan habilidades prácticas en entornos simulados. En el ámbito laboral, este conocimiento es imprescindible para los profesionales encargados del mantenimiento de sistemas en red, garantizando el funcionamiento continuo de las operaciones empresariales.'}
-        ]
-      },
-      {
-        id: "t71_s7", shortTitle: "7. Conclusión", title: "7. CONCLUSIÓN",
-        content: [
-          { type: 'paragraph', text: 'Las redes para aplicar servicios de telecomunicaciones juegan un papel vital en cualquier organización. Actualmente es habitual la utilización de servicios que se ubican en el exterior de la red (servicios en la nube) y que ayudan al administrador a gestionar la red, atendiendo a los eventos que se producen mediante un sistema de alarmas. Los usuarios se benefician de estos servicios remotos de modo transparente, debido al avance que han tenido los protocolos y aplicaciones de capas superiores.'}
-        ]
-      },
-      {
-        id: "t71_s8",
-        shortTitle: "8. Bibliografía",
-        title: "8. BIBLIOGRAFÍA",
-        content: [
-          { type: 'bibliography', items: [
-              { text: 'Bonnet, N. (2019). <em>Windows Server. Las bases para administrar y configurar su servidor</em>. Ediciones Eni.' },
-              { text: 'Tanenbaum, A. (2021). <em>Computer Networks</em>. Editorial Pearson.' },
-              { text: 'Núñez, M. (2019). <em>Sistemas operativos en red</em>. Editorial Síntesis.' },
-              { text: 'Feria, J. (2021). <em>Administración de sistemas operativos</em>. Editorial Síntesis.' }
-          ]}
-        ]
-      }
-    ]
-  };
+    },
+    {
+      id: "t71_s5",
+      shortTitle: "5. Facilidades de Gestión",
+      title: "5. FACILIDADES DE GESTIÓN",
+      icon: "managementTools",
+      content: [
+        { type: 'paragraph', text: 'Son herramientas y modelos que facilitan la administración y garantizan la funcionalidad y seguridad de la red.' },
+        { type: 'keyConcept', title: 'Modelo FCAPS de ISO', text: 'Define las 5 áreas funcionales de la gestión de redes:'},
+        { type: 'flowDiagram', title: 'Modelo de Gestión de Red FCAPS',
+            initialNodes: [
+                {id: 'f', position:{x:0, y:0}, data:{label:'Fault (Errores)'}},
+                {id: 'c', position:{x:250, y:0}, data:{label:'Configuration'}},
+                {id: 'a', position:{x:500, y:0}, data:{label:'Accounting (Contabilidad)'}},
+                {id: 'p', position:{x:125, y:150}, data:{label:'Performance (Rendimiento)'}},
+                {id: 's', position:{x:375, y:150}, data:{label:'Security (Seguridad)'}}
+            ],
+            initialEdges: []
+        },
+        { type: 'paragraph', text: 'Para implementar estas gestiones se utilizan protocolos como <strong>SNMP (Simple Network Management Protocol)</strong> y plataformas de monitorización como <code>Zabbix</code>, <code>Nagios</code> o <code>PRTG Network Monitor</code>.'}
+      ]
+    },
+    { id: "t71_s6", shortTitle: "6. Aplicación", title: "6. APLICACIÓN DE LOS CONTENIDOS", icon: "application", content: [ { type: 'paragraph', text: 'El conocimiento sobre la administración de sistemas en red local es fundamental. En FP, es la base de módulos como "Sistemas Operativos en Red". En el ámbito laboral, es el núcleo de roles como <strong>SysAdmin</strong> o especialista en <strong>Ciberseguridad</strong>.' } ] },
+    { id: 't71_s7', title: "7. CONCLUSIÓN", shortTitle: "7. Conclusión", icon: 'conclusion', content: [ { type: 'paragraph', text: 'Las redes son vitales para cualquier organización. Una administración eficiente, apoyada en herramientas y modelos estandarizados como SNMP y FCAPS, garantiza el funcionamiento continuo de las redes, apoyando las operaciones empresariales y minimizando tiempos de inactividad.' } ] },
+    { id: 't71_s8', title: "8. BIBLIOGRAFÍA", shortTitle: "8. Bibliografía", icon: 'bibliography', content: [ { type: 'bibliography', items: [ { text: 'Bonnet, N. (2019). <em>Windows Server. Las bases para administrar y configurar su servidor</em>. Ediciones Eni.' }, { text: 'Núñez, M. (2019). <em>Sistemas operativos en red</em>. Editorial Síntesis.' } ] } ] }
+  ],
+  glossary: [
+    { term: 'Administración de Red', definition: 'Conjunto de tareas de gestión y seguridad de todos los componentes de la red para asegurar su funcionamiento eficiente, fiable y seguro.' },
+    { term: 'Explotación', definition: 'La utilización que un usuario hace de los servicios que la red pone a su disposición.' },
+    { term: 'Servicio de Directorio', definition: 'Sistema que almacena y organiza la información sobre los usuarios y recursos de una red (ej. Active Directory, LDAP).' },
+    { term: 'SSH (Secure Shell)', definition: 'Protocolo criptográfico para operar servicios de red de forma segura sobre una red no segura, comúnmente usado para acceso por terminal.' },
+    { term: 'SNMP (Simple Network Management Protocol)', definition: 'Protocolo estándar para la gestión y monitorización de dispositivos en una red TCP/IP.' },
+    { term: 'FCAPS', definition: 'Modelo de gestión de redes de la ISO que define cinco áreas funcionales: Fault, Configuration, Accounting, Performance, Security.' }
+  ]
+};

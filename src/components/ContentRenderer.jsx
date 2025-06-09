@@ -15,6 +15,8 @@ import FlowDiagram from './blocks/FlowDiagram';
 import TableOfContents from './blocks/TableOfContents';
 import CodeBlock from './blocks/CodeBlock';
 import CodeExample from './blocks/CodeExample';
+import ImageBlock from './blocks/ImageBlock';
+
 
 // --- AÑADIMOS LAS IMPORTACIONES DE LOS NUEVOS COMPONENTES ---
 import KeyConcept from './blocks/KeyConcept';
@@ -45,6 +47,7 @@ const componentMap = {
   quiz: Quiz,
   interactiveElement: InteractiveElement,
   interactiveDiagram: InteractiveDiagram,
+  image: ImageBlock,
 };
 
 // 3. El componente principal que recibe los bloques de contenido y la función de navegación
