@@ -2,32 +2,28 @@
 import React from 'react';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
-const PageLayout = ({ sidebarContent, children, isSidebarOpen, onCloseSidebar }) => {
+// Acepta la nueva prop 'contentRef'
+const PageLayout = ({ sidebarContent, children, isSidebarOpen, onCloseSidebar, topDetector, bottomDetector, contentRef }) => {
   const sidebarClassName = `sidebar-mobile ${isSidebarOpen ? 'open' : ''}`;
   const overlayClassName = `sidebar-overlay ${isSidebarOpen ? 'open' : ''}`;
 
   return (
     <div className="app-container">
-      {/* Elementos para el menú deslizable de móvil */}
       <div className={overlayClassName} onClick={onCloseSidebar}></div>
-      <aside className={sidebarClassName}>
-        {sidebarContent}
-      </aside>
-
-      {/* Layout principal que se adapta */}
+      <aside className={sidebarClassName}>{sidebarContent}</aside>
+      
       <div className="main-layout-container">
-        <PanelGroup direction="horizontal">
-          {/* Panel de la barra lateral de escritorio */}
+        <PanelGroup direction="horizontal" className="desktop-panels">
           <Panel defaultSize={20} minSize={15} className="sidebar-panel-desktop">
-            <div className="sidebar-desktop-content">
-              {sidebarContent}
-            </div>
+            <aside className="sidebar-desktop">{sidebarContent}</aside>
           </Panel>
           <PanelResizeHandle className="resize-handle" />
-          {/* Panel del contenido principal */}
           <Panel>
-            <main className="main-content">
+            {/* Asignamos la ref al elemento main */}
+            <main className="main-content" ref={contentRef}>
+              {topDetector}
               {children}
+              {bottomDetector}
             </main>
           </Panel>
         </PanelGroup>

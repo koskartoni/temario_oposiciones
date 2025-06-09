@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react'; // Asegúrate de que useRef está importado
 import { FaBrain } from 'react-icons/fa';
 
 // Importaciones
@@ -14,20 +14,19 @@ function App() {
   const [currentThemeIndex, setCurrentThemeIndex] = useState(0);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isPracticeMode, setIsPracticeMode] = useState(false);
-  
-  // El estado de la sección se inicializa y se actualiza en el efecto para mayor seguridad
   const [selectedSectionId, setSelectedSectionId] = useState('');
+
+  // --- Ref para el contenedor de contenido ---
+  const mainContentRef = useRef(null);
 
   // --- Derivación de Datos ---
   const currentThemeData = allThemesData[currentThemeIndex];
-  
   const indexSection = {
     id: `${currentThemeData.id}-index`,
     shortTitle: "0. Índice del Tema",
     title: `Índice: ${currentThemeData.title}`,
     content: [{ type: 'tableOfContents', sections: currentThemeData.sections }]
   };
-  
   const sectionsWithIndex = [indexSection, ...currentThemeData.sections];
   
   const currentIndex = sectionsWithIndex.findIndex(s => s.id === selectedSectionId);
@@ -37,34 +36,34 @@ function App() {
 
   // --- Efectos ---
   useEffect(() => {
-    // Este efecto asegura que al cargar o cambiar de tema, siempre empecemos en la página de índice
     setSelectedSectionId(`${allThemesData[currentThemeIndex].id}-index`);
   }, [currentThemeIndex]);
 
+  useEffect(() => {
+    if (mainContentRef.current) {
+      mainContentRef.current.scrollTo(0, 0);
+    }
+  }, [selectedSectionId]);
 
-  // --- Manejadores de Eventos ---
+  // --- Manejadores ---
   const handleThemeChange = (event) => {
     setCurrentThemeIndex(parseInt(event.target.value, 10));
   };
 
   const handleSectionClick = (sectionId) => {
     setSelectedSectionId(sectionId);
-    setIsSidebarOpen(false); // Cierra el menú al hacer clic en una sección (importante para móvil)
+    setIsSidebarOpen(false);
   };
   
   // --- Renderizado ---
-
-  // Si estamos en modo práctica, renderizamos solo el entrenador
   if (isPracticeMode) {
     return <IndexTrainer sections={currentThemeData.sections} onExit={() => setIsPracticeMode(false)} />;
   }
 
-  // Si la sección aún no se ha cargado (en el primer renderizado), mostramos un estado de carga
   if (!selectedSection) {
     return <div>Cargando...</div>; 
   }
 
-  // Renderizado principal
   return (
     <PageLayout
       sidebarContent={
@@ -99,10 +98,9 @@ function App() {
       }
       isSidebarOpen={isSidebarOpen}
       onCloseSidebar={() => setIsSidebarOpen(false)}
+      contentRef={mainContentRef} // <-- ESTA ES LA LÍNEA A AÑADIR
     >
-      {/* El detector del botón 'Anterior' va al principio del contenido */}
       <PrevSectionButton prev={prevSection} onNavigate={handleSectionClick} />
-
       <div className="main-content-header">
         <button className="menu-toggle-btn" onClick={() => setIsSidebarOpen(true)}>☰</button>
         <h1>{selectedSection.title}</h1>
@@ -112,13 +110,10 @@ function App() {
           </button>
         )}
       </div>
-
       <ContentRenderer
         contentBlocks={selectedSection.content}
         onSectionClick={handleSectionClick}
       />
-      
-      {/* El detector del botón 'Siguiente' va al final del contenido */}
       <NextSectionButton next={nextSection} onNavigate={handleSectionClick} />
     </PageLayout>
   );

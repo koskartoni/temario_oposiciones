@@ -43,6 +43,7 @@
     padding: 2rem;
     box-sizing: border-box;
     overflow-y: auto;
+    padding-bottom: 150px;
   }
   .sidebar-mobile, .sidebar-overlay, .menu-toggle-btn {
     display: none;
